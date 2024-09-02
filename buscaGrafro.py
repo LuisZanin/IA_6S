@@ -120,8 +120,7 @@ class Grafo:
                     heapq.heappush(fila_prioridade, (novo_custo, vizinho))
 
 
-    def busca_uniforme_caminho(self, vertice_inicial, vertice_final):
-        print("Busca de Custo Uniforme: ") 
+    def busca_uniforme_caminho(self, vertice_inicial, vertice_final): 
         fila_prioridade = [(0, vertice_inicial, [])]
         visitados = set()
 
@@ -134,7 +133,7 @@ class Grafo:
             caminho_atual = caminho_atual + [vertice]
 
             if vertice == vertice_final:
-                print(f"O Caminho Percorrido foi {caminho_atual} com  o custo total de ${custo_atual}")
+                print(f"O Caminho Uniforme por Caminho Percorrido foi {caminho_atual} com  o custo total de ${custo_atual}")
                 return ""
             
             visitados.add(vertice)
@@ -176,12 +175,13 @@ grafo.adicionar_arco('nurnberg', 'wurzburg', 104)
 print(grafo)
 
 #Busca em Largura por caminho
-#caminho_largura = grafo.busca_em_largura_caminho('ulm', 'frankfurt')
-#print("Caminho:", caminho_largura)
+caminho_largura = grafo.busca_em_largura_caminho('ulm', 'frankfurt')
+print("Caminho por largura:", caminho_largura)
 
 #Busca em Profundidade por caminho
-#caminho_profundidade = grafo.busca_em_profundidade_caminho('ulm', 'frankfurt')
-#print("Caminho:", caminho_profundidade)
+caminho_profundidade = grafo.busca_em_profundidade_caminho('ulm', 'frankfurt')
+print("Caminho por Profundidade:", caminho_profundidade)
 
+#Busca de Custo Uniforme por caminho
 caminho_uniforme = grafo.busca_uniforme_caminho('ulm' , 'frankfurt')
 print(caminho_uniforme)
